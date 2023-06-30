@@ -13,11 +13,11 @@ class Realisateur extends Personne
     // Ajoute un film réalisé par ce réalisateur
     public function ajouterFilm(Film $film)
     {
-        array_push($this->_films, $film);
+        $this->_films[] = $film;
     }
 
-    // Afiche tout les films correspondant au genre
-    public function afficherFIlms()
+    // Affiche tout les films correspondant au genre
+    public function afficherFilms()
     {
         $result = "<h1>Liste des films de " . $this->_nom . " " . $this->_prenom . " :</h1>";
 

@@ -33,11 +33,11 @@ class Genre
     // Ajoute un film correspondant à ce genre
     public function ajouterFilm(Film $film)
     {
-        array_push($this->_films, $film);
+        $this->_films[] = $film;
     }
 
-    // Afiche tout les films correspondant au genre
-    public function afficherFIlms()
+    // Affiche tous les films correspondant au genre
+    public function afficherFilms()
     {
         $result = "<h1>Liste des films de " . $this->_nom . " :</h1>";
 
