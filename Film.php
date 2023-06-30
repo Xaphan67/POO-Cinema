@@ -6,10 +6,11 @@ class Film
     private DateTime $_dateSortie;
     private int $_duree;
     private Realisateur $_realisateur;
+    private $_acteurs = array();
     private Genre $_genre;
     private string $_synopsis;
 
-    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, Genre $genre, string $synopsis = "")
+    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, $acteurs, Genre $genre, string $synopsis = "")
     {
         $this->_titre = $titre;
         $this->_dateSortie = new DateTime($dateSortie);
@@ -19,6 +20,15 @@ class Film
         $this->_synopsis = $synopsis;
 
         $this->_realisateur->ajouterFilm($this);
+
+        foreach ($acteurs as $role => $acteur)
+        {
+            if (get_class($acteur) == "Acteur") // On s'assure que le tableau contient bien des objets de type "Acteur"
+            {
+                $this->_acteurs[] = $acteur;
+            }
+        }
+
         $this->_genre->ajouterFilm($this);
     }
 

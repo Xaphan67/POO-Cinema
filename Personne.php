@@ -4,8 +4,8 @@ class Personne
 {
     protected string $_nom;
     protected string $_prenom;
-    private string $_sexe;
-    private DateTime $_dateNaissance;
+    protected string $_sexe;
+    protected DateTime $_dateNaissance;
 
     public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance)
     {
