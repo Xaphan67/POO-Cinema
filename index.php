@@ -6,17 +6,22 @@ require_once("Acteur.php");
 require_once("Genre.php");
 require_once("Film.php");
 
+// Tableau des réalisateurs
 
 $realisateurs = [
     new Realisateur("Abrams", "Jeffrey Jacob", "Homme", "1966-06-27"),
     new Realisateur("Ridley", "Scott", "Homme", "1937-11-30")
 ];
 
+// Tableau des genres
+
 $genres = [
     new Genre("Science-fiction"),
     new Genre("Aventure"),
     new Genre("Action")
 ];
+
+// Tableau des acteurs
 
 /*$acteurs = [
     new Acteur("Ridley", "Daisy", "Femme", "1992-04-10"),
@@ -30,8 +35,15 @@ $genres = [
     new Acteur("Hannah", "Dary", "Femme", "1960-12-03")
 ];*/
 
+// Tableau des films
+
 $films = [
     new Film("Star Wars - Le reveil de la force", "2015-12-16", 138, $realisateurs[0], $genres[0]),
     new Film("Blade Runner", "1982-09-15", 111, $realisateurs[1], $genres[0]),
 ];
 
+
+
+echo $genres[0]->afficherFIlms();
+
+echo $realisateurs[0]->afficherFIlms();

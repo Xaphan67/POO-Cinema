@@ -17,6 +17,9 @@ class Film
         $this->_realisateur = $realisateur;
         $this->_genre = $genre;
         $this->_synopsis = $synopsis;
+
+        $this->_realisateur->ajouterFilm($this);
+        $this->_genre->ajouterFilm($this);
     }
 
     public function getTitre()
