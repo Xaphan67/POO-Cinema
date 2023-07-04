@@ -1,6 +1,6 @@
 <?php
 
-class casting
+class Casting
 {
     private Acteur $_acteur;
     private Film $_film;
@@ -10,6 +10,10 @@ class casting
         $this->_acteur = $acteur;
         $this->_film = $film;
         $this->_role = $role;
+
+        $acteur->ajouterCasting($this);
+        $film->ajouterCasting($this);
+        $role->ajouterCasting($this);
     }
 
     public function getActeur()

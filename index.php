@@ -47,8 +47,6 @@ $starWars = new Film(
     "2015-12-16",
     138,
     $abramsJJ,
-    array($ridleyDaisy, $boyegaJhon, $isaacOscar, $fisherCarrie, $fordHarrison),
-    array($rey, $finn, $poeDameron, $hanSolo, $leia),
     $scienceFi
 );
 $bladeRunner = new Film(
@@ -56,8 +54,6 @@ $bladeRunner = new Film(
     "1982-09-15",
     111,
     $ridleyScott,
-    array($fordHarrison, $hauerRutger, $youngSean, $olmosEdwardJ, $hannahDaryl),
-    array($rickDeckard, $royBatty, $rachael, $gaff, $pris),
     $scienceFi
 );
 $batmanFilm = new Film(
@@ -65,8 +61,6 @@ $batmanFilm = new Film(
     "1989-09-13",
     126,
     $timBurton,
-    array($KeatonMichael),
-    array($batman),
     $fantastique
 );
 $batmanEtRobin = new Film(
@@ -74,10 +68,22 @@ $batmanEtRobin = new Film(
     "1997-07-09",
     125,
     $joelSchumacher,
-    array($ClooneyGeorge),
-    array($batman),
     $fantastique
 );
+
+// Castings
+$c1 = new Casting($ridleyDaisy, $starWars, $rey);
+$c2 = new Casting($boyegaJhon, $starWars, $finn);
+$c3 = new Casting($isaacOscar, $starWars, $poeDameron);
+$c4 = new Casting($fisherCarrie, $starWars, $leia);
+$c5 = new Casting($fordHarrison, $starWars, $hanSolo);
+$c6 = new Casting($fordHarrison, $bladeRunner, $rickDeckard);
+$c7 = new Casting($hauerRutger, $bladeRunner, $royBatty);
+$c8 = new Casting($youngSean, $bladeRunner, $rachael);
+$c9 = new Casting($olmosEdwardJ, $bladeRunner, $gaff);
+$c10 = new Casting($hannahDaryl, $bladeRunner, $pris);
+$c11 = new Casting($KeatonMichael, $batmanFilm, $batman);
+$c12 = new Casting($ClooneyGeorge, $batmanEtRobin, $batman);
 
 // Liste des acteurs ayant incarné un rôle précis
 echo $batman->afficherActeurs();

@@ -6,11 +6,11 @@ class Film
     private DateTime $_dateSortie;
     private int $_duree;
     private Realisateur $_realisateur;
-    private $_casting = array();
+    private $_castings = array();
     private Genre $_genre;
     private string $_synopsis;
 
-    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, $acteurs, $roles, Genre $genre, string $synopsis = "")
+    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, Genre $genre, string $synopsis = "")
     {
         $this->_titre = $titre;
         $this->_dateSortie = new DateTime($dateSortie);
@@ -20,21 +20,7 @@ class Film
         $this->_synopsis = $synopsis;
 
         $this->_realisateur->ajouterFilm($this);
-
-        for ($i = 0; $i < count($acteurs); $i++)
-        {
-            $casting = new Casting($acteurs[$i], $this, $roles[$i]);
-            $this->_casting[] = $casting;
-            $acteurs[$i]->ajouterCasting($casting);
-            $roles[$i]->ajouterCasting($casting);
-        }
-
         $this->_genre->ajouterFilm($this);
-    }
-
-    public function test()
-    {
-        var_dump($this->_casting);
     }
 
     public function getTitre()
@@ -103,12 +89,18 @@ class Film
         return $this->_titre . " - Durée : " . $this->_duree . " minutes, sorti le " . $formatter->format($this->_dateSortie) . " - Genre : " . $this->_genre;
     }
 
+    // Ajoute le casting de ce film
+    public function ajouterCasting(Casting $casting)
+    {
+        $this->_castings[] = $casting;
+    }
+
     // Affiche le casting du film
     public function afficherCasting()
     {
         $result = "<h1>Dans le film " . $this->_titre . " :</h1>";
 
-        foreach ($this->_casting as $casting)
+        foreach ($this->_castings as $casting)
         {
             $acteur = $casting->getActeur();
             $result .= $acteur->getNom() . " " . $acteur->getprenom() . " à été incarné par " . $casting->getRole() . "</br>";

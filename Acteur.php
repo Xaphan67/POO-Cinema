@@ -9,16 +9,16 @@ class Acteur extends Personne
         parent:: __construct($nom, $prenom, $sexe, $dateNaissance);
     }
 
-    // Ajoute le casting de cet acteur
-    public function ajouterCasting(Casting $casting)
-    {
-        $this->_castings[] = $casting;
-    }
-
     public function __toString()
     {
         $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
         return $this->_nom . " " . $this->_prenom . " (" . $this->_sexe . ") Né" . ($this->_sexe == "Femme" ? "e" : "") . " le " . $formatter->format($this->_dateNaissance);
+    }
+
+    // Ajoute le casting de cet acteur
+    public function ajouterCasting(Casting $casting)
+    {
+        $this->_castings[] = $casting;
     }
 
     // Affiche la liste des films dans lesquels l'acteur à joué
