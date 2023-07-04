@@ -4,6 +4,11 @@ class Realisateur extends Personne
 {
     private $_films = array();
 
+    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance)
+    {
+        parent:: __construct($nom, $prenom, $sexe, $dateNaissance);
+    }
+
     public function __toString()
     {
         $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
