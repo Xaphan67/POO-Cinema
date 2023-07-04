@@ -20,6 +20,16 @@ class Role
         $this->_nom = $nom;
     }
 
+    public function getActeurs()
+    {
+        return $this->_acteurs;
+    }
+
+    public function setActeurs($acteurs)
+    {
+        $this->_acteurs = $acteurs;
+    }
+
     public function __toString()
     {
         return $this->_nom;

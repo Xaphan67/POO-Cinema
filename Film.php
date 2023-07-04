@@ -7,6 +7,7 @@ class Film
     private int $_duree;
     private Realisateur $_realisateur;
     private $_acteurs = array();
+    private $_roles = array();
     private Genre $_genre;
     private string $_synopsis;
 
@@ -21,11 +22,12 @@ class Film
 
         $this->_realisateur->ajouterFilm($this);
 
-        foreach ($acteurs as $role => $acteur)
+        foreach ($acteurs as $acteur)
         {
             if (get_class($acteur) == "Acteur") // On s'assure que le tableau contient bien des objets de type "Acteur"
             {
                 $this->_acteurs[] = $acteur;
+                $acteur->ajouterFilm($this);
             }
         }
 
