@@ -54,4 +54,9 @@ class Personne
     {
         $this->_dateNaissance = $dateNaissance;
     }
+
+    public function __toString()
+    {
+        return $this->_nom . " " . $this->_prenom;
+    }
 }

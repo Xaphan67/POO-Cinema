@@ -25,51 +25,27 @@ $pris = new Role("Pris");
 $batman = new Role("Batman");
 
 // Acteurs
-$ridleyDaisy = new Acteur("Ridley", "Daisy", "Femme", "1992-04-10", array($rey));
-$boyegaJhon = new Acteur("Boyega", "Jhon", "Homme", "1992-03-17", array($finn));
-$isaacOscar = new Acteur("Isaac", "Oscar", "Homme", "1979-03-09", array($poeDameron));
-$fisherCarrie = new Acteur("Fisher", "Carrie", "Femme", "1956-10-21", array($leia));
-$fordHarrison = new Acteur("Ford", "Harrison", "Homme", "1942-07-13", array($rickDeckard, $hanSolo));
-$hauerRutger = new Acteur("Hauer", "Rutger", "Homme", "1944-01-23", array($royBatty));
-$youngSean = new Acteur("Young", "Sean", "Femme", "1959-11-19", array($rachael));
-$olmosEdwardJ = new Acteur("Olmos", "Edward James", "Homme", "1947-02-24", array($gaff));
-$hannahDaryl = new Acteur("Hannah", "Daryl", "Femme", "1960-12-03", array($pris));
-$KeatonMichael = new Acteur("Keaton", "Michael", "Homme", "1951-09-05", array($batman));
-$ClooneyGeorge = new Acteur("Clooney", "George", "Homme", "1691-05-06", array($batman));
+$ridleyDaisy = new Acteur("Ridley", "Daisy", "Femme", "1992-04-10");
+$boyegaJhon = new Acteur("Boyega", "Jhon", "Homme", "1992-03-17");
+$isaacOscar = new Acteur("Isaac", "Oscar", "Homme", "1979-03-09");
+$fisherCarrie = new Acteur("Fisher", "Carrie", "Femme", "1956-10-21");
+$fordHarrison = new Acteur("Ford", "Harrison", "Homme", "1942-07-13");
+$hauerRutger = new Acteur("Hauer", "Rutger", "Homme", "1944-01-23");
+$youngSean = new Acteur("Young", "Sean", "Femme", "1959-11-19");
+$olmosEdwardJ = new Acteur("Olmos", "Edward James", "Homme", "1947-02-24");
+$hannahDaryl = new Acteur("Hannah", "Daryl", "Femme", "1960-12-03");
+$KeatonMichael = new Acteur("Keaton", "Michael", "Homme", "1951-09-05");
+$ClooneyGeorge = new Acteur("Clooney", "George", "Homme", "1691-05-06");
 
 // Genres
 $scienceFi = new Genre("Science-fiction");
 $fantastique = new Genre("Fantastique");
 
 // Films
-$starWars = new Film(
-    "Star Wars - Le reveil de la force",
-    "2015-12-16",
-    138,
-    $abramsJJ,
-    $scienceFi
-);
-$bladeRunner = new Film(
-    "Blade Runner",
-    "1982-09-15",
-    111,
-    $ridleyScott,
-    $scienceFi
-);
-$batmanFilm = new Film(
-    "Batman",
-    "1989-09-13",
-    126,
-    $timBurton,
-    $fantastique
-);
-$batmanEtRobin = new Film(
-    "Batman & Robin",
-    "1997-07-09",
-    125,
-    $joelSchumacher,
-    $fantastique
-);
+$starWars = new Film("Star Wars - Le reveil de la force", "2015-12-16", 138, $abramsJJ, $scienceFi);
+$bladeRunner = new Film("Blade Runner", "1982-09-15", 111, $ridleyScott, $scienceFi);
+$batmanFilm = new Film("Batman", "1989-09-13", 126, $timBurton, $fantastique);
+$batmanEtRobin = new Film("Batman & Robin", "1997-07-09", 125, $joelSchumacher, $fantastique);
 
 // Castings
 $c1 = new Casting($ridleyDaisy, $starWars, $rey);

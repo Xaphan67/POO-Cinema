@@ -102,8 +102,7 @@ class Film
 
         foreach ($this->_castings as $casting)
         {
-            $acteur = $casting->getActeur();
-            $result .= $acteur->getNom() . " " . $acteur->getprenom() . " à été incarné par " . $casting->getRole() . "</br>";
+            $result .= $casting->getActeur() . " à été incarné par " . $casting->getRole() . "</br>";
         }
 
         return $result;

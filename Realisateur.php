@@ -9,12 +9,6 @@ class Realisateur extends Personne
         parent:: __construct($nom, $prenom, $sexe, $dateNaissance);
     }
 
-    public function __toString()
-    {
-        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-        return $this->_nom . " " . $this->_prenom . " (" . $this->_sexe . ") Né" . ($this->_sexe == "Femme" ? "e" : "") . " le " . $formatter->format($_dateNaissance);
-    }
-
     // Ajoute un film réalisé par ce réalisateur
     public function ajouterFilm(Film $film)
     {

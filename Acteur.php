@@ -4,15 +4,9 @@ class Acteur extends Personne
 {
     private $_castings = array();
 
-    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance, $roles)
+    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance)
     {
         parent:: __construct($nom, $prenom, $sexe, $dateNaissance);
-    }
-
-    public function __toString()
-    {
-        $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-        return $this->_nom . " " . $this->_prenom . " (" . $this->_sexe . ") Né" . ($this->_sexe == "Femme" ? "e" : "") . " le " . $formatter->format($this->_dateNaissance);
     }
 
     // Ajoute le casting de cet acteur
