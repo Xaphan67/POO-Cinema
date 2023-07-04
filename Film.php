@@ -6,8 +6,7 @@ class Film
     private DateTime $_dateSortie;
     private int $_duree;
     private Realisateur $_realisateur;
-    private $_acteurs = array();
-    private $_roles = array();
+    private $_casting = array();
     private Genre $_genre;
     private string $_synopsis;
 
@@ -22,24 +21,20 @@ class Film
 
         $this->_realisateur->ajouterFilm($this);
 
-        foreach ($acteurs as $acteur)
+        for ($i = 0; $i < count($acteurs); $i++)
         {
-            if (get_class($acteur) == "Acteur") // On s'assure que le tableau contient bien des objets de type "Acteur"
-            {
-                $this->_acteurs[] = $acteur;
-                $acteur->ajouterFilm($this);
-            }
-        }
-
-        foreach ($roles as $role)
-        {
-            if (get_class($role) == "Role") // On s'assure que le tableau contient bien des objets de type "Role"
-            {
-                $this->_roles[] = $role;
-            }
+            $casting = new Casting($acteurs[$i], $this, $roles[$i]);
+            $this->_casting[] = $casting;
+            $acteurs[$i]->ajouterCasting($casting);
+            $roles[$i]->ajouterCasting($casting);
         }
 
         $this->_genre->ajouterFilm($this);
+    }
+
+    public function test()
+    {
+        var_dump($this->_casting);
     }
 
     public function getTitre()
@@ -113,15 +108,10 @@ class Film
     {
         $result = "<h1>Dans le film " . $this->_titre . " :</h1>";
 
-        foreach ($this->_acteurs as $acteur) // Pour chaque acteur du film
+        foreach ($this->_casting as $casting)
         {
-            foreach ($this->_roles as $role) // Parcours chaque rôle du film
-            {
-                if (in_array($acteur, $role->getActeurs())) // Vérifie que l'acteur à joué le rôle
-                {
-                    $result .= $role->getNom() . " à été incarné par " . $acteur->getPrenom() . " " . $acteur->getNom() . "</br>";
-                }
-            }
+            $acteur = $casting->getActeur();
+            $result .= $acteur->getNom() . " " . $acteur->getprenom() . " à été incarné par " . $casting->getRole() . "</br>";
         }
 
         return $result;

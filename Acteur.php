@@ -2,25 +2,17 @@
 
 class Acteur extends Personne
 {
-    private $_films = array();
+    private $_castings = array();
 
     public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance, $roles)
     {
         parent:: __construct($nom, $prenom, $sexe, $dateNaissance);
-
-        foreach ($roles as $role)
-        {
-            if (get_class($role) == "Role")
-            {
-                $role->ajouterActeur($this);
-            }
-        }
     }
 
-    // Ajoute un film joué par cet acteur
-    public function ajouterFilm(Film $film)
+    // Ajoute le casting de cet acteur
+    public function ajouterCasting(Casting $casting)
     {
-        $this->_films[] = $film;
+        $this->_castings[] = $casting;
     }
 
     public function __toString()
@@ -34,9 +26,9 @@ class Acteur extends Personne
     {
         $result = "<h1>Liste des films dans lequels " . $this->_nom . " " . $this->_prenom . " à joué :</h1>";
 
-        foreach ($this->_films as $film)
+        foreach ($this->_castings as $casting)
         {
-            $result .= "$film </br>";
+            $result .= $casting->getFilm() . " </br>";
         }
 
         return $result;

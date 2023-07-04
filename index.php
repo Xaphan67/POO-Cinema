@@ -79,6 +79,9 @@ $batmanEtRobin = new Film(
     $fantastique
 );
 
+// Castings
+$castingStarWars = new Casting($ridleyDaisy, $starWars, $rey);
+
 // Liste des acteurs ayant incarné un rôle précis
 echo $batman->afficherActeurs();
 
