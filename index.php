@@ -48,6 +48,7 @@ $starWars = new Film(
     138,
     $abramsJJ,
     array($ridleyDaisy, $boyegaJhon, $isaacOscar, $fisherCarrie, $fordHarrison),
+    array($rey, $finn, $poeDameron, $hanSolo, $leia),
     $scienceFi
 );
 $bladeRunner = new Film(
@@ -56,6 +57,7 @@ $bladeRunner = new Film(
     111,
     $ridleyScott,
     array($fordHarrison, $hauerRutger, $youngSean, $olmosEdwardJ, $hannahDaryl),
+    array($rickDeckard, $royBatty, $rachael, $gaff, $pris),
     $scienceFi
 );
 $batmanFilm = new Film(
@@ -64,6 +66,7 @@ $batmanFilm = new Film(
     126,
     $timBurton,
     array($KeatonMichael),
+    array($batman),
     $fantastique
 );
 $batmanEtRobin = new Film(
@@ -72,8 +75,21 @@ $batmanEtRobin = new Film(
     125,
     $joelSchumacher,
     array($ClooneyGeorge),
+    array($batman),
     $fantastique
 );
 
 // Liste des acteurs ayant incarné un rôle précis
 echo $batman->afficherActeurs();
+
+// Liste du casting d'un film
+echo $starWars->afficherCasting();
+
+// Liste des films d'un genre
+echo $scienceFi->afficherFilms();
+
+// Liste des films dans lesquels un acteur à joué
+echo $fordHarrison->afficherFilms();
+
+// Liste des films d'un réalisateur
+echo $abramsJJ->afficherFilms();

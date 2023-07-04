@@ -11,7 +11,7 @@ class Film
     private Genre $_genre;
     private string $_synopsis;
 
-    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, $acteurs, Genre $genre, string $synopsis = "")
+    public function __construct(string $titre, string $dateSortie, int $duree, Realisateur $realisateur, $acteurs, $roles, Genre $genre, string $synopsis = "")
     {
         $this->_titre = $titre;
         $this->_dateSortie = new DateTime($dateSortie);
@@ -28,6 +28,14 @@ class Film
             {
                 $this->_acteurs[] = $acteur;
                 $acteur->ajouterFilm($this);
+            }
+        }
+
+        foreach ($roles as $role)
+        {
+            if (get_class($role) == "Role") // On s'assure que le tableau contient bien des objets de type "Role"
+            {
+                $this->_roles[] = $role;
             }
         }
 
@@ -98,5 +106,24 @@ class Film
     {
         $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
         return $this->_titre . " - Durée : " . $this->_duree . " minutes, sorti le " . $formatter->format($this->_dateSortie) . " - Genre : " . $this->_genre;
+    }
+
+    // Affiche le casting du film
+    public function afficherCasting()
+    {
+        $result = "<h1>Dans le film " . $this->_titre . " :</h1>";
+
+        foreach ($this->_acteurs as $acteur) // Pour chaque acteur du film
+        {
+            foreach ($this->_roles as $role) // Parcours chaque rôle du film
+            {
+                if (in_array($acteur, $role->getActeurs())) // Vérifie que l'acteur à joué le rôle
+                {
+                    $result .= $role->getNom() . " à été incarné par " . $acteur->getPrenom() . " " . $acteur->getNom() . "</br>";
+                }
+            }
+        }
+
+        return $result;
     }
 }

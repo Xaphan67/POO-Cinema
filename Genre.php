@@ -39,11 +39,11 @@ class Genre
     // Affiche tous les films correspondant au genre
     public function afficherFilms()
     {
-        $result = "<h1>Liste des films de " . $this->_nom . " :</h1>";
+        $result = "<h1>Le genre " . $this->_nom . " est associé à " . count($this->_films) . " films :</h1>";
 
         foreach ($this->_films as $film)
         {
-            $result .= "$film </br>";
+            $result .= $film->getTitre() . " </br>";
         }
 
         return $result;
